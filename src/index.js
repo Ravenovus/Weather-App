@@ -1,5 +1,5 @@
 import "./styles.css";
-import { weatherAppController } from "./weatherAppController.js";
+import { getWeatherData } from "./weatherAppController.js";
 
 
-weatherAppController.init();
+getWeatherData();
