@@ -1,0 +1,8 @@
+#location{
+    text-transform: capitalize;
+}
+
+.pairing{
+    display: flex;
+    gap:3px;
+}
