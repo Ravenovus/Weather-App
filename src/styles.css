@@ -6,3 +6,27 @@
     display: flex;
     gap:3px;
 }
+
+.appContainer{
+    display:flex;
+    justify-content:center;
+    align-items: center;
+    height: 100vh;
+    gap:5%;
+}
+
+.todayWeather{
+    border-radius: 5px;
+    border-color: rgba(0, 255, 255, 0.288);
+    background-color: rgba(0, 255, 255, 0.452);
+    padding:10%;
+
+}
+
+.dayCard{
+    border-radius: 5px;
+    border-color: rgba(0, 255, 255, 0.288);
+    background-color: rgba(0, 255, 255, 0.452);
+    border-width: 1px;
+    margin:5px;
+}
