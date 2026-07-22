@@ -38,7 +38,9 @@ function handleWeatherInfo(data, unitType){
             feelsLike : today.feelslike,
             humidity : today.humidity,
             maxTemp : week[0].tempmax,
-            minTemp : week[0].tempmin
+            minTemp : week[0].tempmin,
+            condition: today.conditions,
+            icon : today.icon
         },
         week : week.slice(1,7)
 

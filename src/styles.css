@@ -24,9 +24,17 @@
 }
 
 .dayCard{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap:10px;
     border-radius: 5px;
     border-color: rgba(0, 255, 255, 0.288);
     background-color: rgba(0, 255, 255, 0.452);
     border-width: 1px;
     margin:5px;
+}
+
+.weatherIcon{
+    width:64px;
 }

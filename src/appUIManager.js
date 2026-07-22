@@ -1,6 +1,11 @@
+import { weatherStaticImages } from "./imageImporter.js";
+import { weatherStaticIcons } from "./imageImporter.js";
+
+
 export const userInterface = {
     todayCard : document.querySelector(".todayWeather"),
     weekCards : document.getElementsByClassName("dayCard"),
+
 
     updateOnScreenData(weather){
         const unit = (weather.today.unit == "celsius")? "c" : "f";
@@ -9,13 +14,15 @@ export const userInterface = {
     },
 
     updateTodayInformation(today, unit){
-        const date = new Date(today.date*1000);
-        console.log(date);
-        console.log(date.getDay());
+        let backgroundImage = weatherStaticImages[today.condition.split(",")[0]];
+        let todayIcon = weatherStaticIcons[today.icon]
         document.querySelector("#location").textContent = today.location;
         document.querySelector("#currentTemp").textContent = today.currentTemp + unit;
+        document.querySelector("#currentIcon").src = `${todayIcon}`;
+        document.querySelector("#currentCondition").textContent = today.condition;
         document.querySelector("#feelsLike").textContent = today.feelsLike + unit;
         document.querySelector("#todayRange").textContent = today.minTemp +unit+ " - " +today.maxTemp+unit;
+        document.body.style.backgroundImage = `url(${backgroundImage}`;
     },
 
     updateWeeklyInformation(week, unit){
@@ -27,6 +34,9 @@ export const userInterface = {
 
     updateWeeklyDayCard(day, data, unit){
         const date = new Date(data.datetime);
+        let icon = weatherStaticIcons[data.icon]
+        day.querySelector(".weatherDescription").textContent = data.conditions;
+        day.querySelector(".weatherIcon").src = `${icon}`
         day.querySelector(".dayName").textContent = this.setDayName(date.getDay());
         day.querySelector(".dayTemperatures").textContent = data.tempmin + unit + " - "+data.tempmax+unit;
     },
