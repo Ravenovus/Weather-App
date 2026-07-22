@@ -11,15 +11,20 @@
     display:flex;
     justify-content:center;
     align-items: center;
-    height: 100vh;
+    height: 80vh;
     gap:5%;
+    
 }
 
 .todayWeather{
+    display:flex;
     border-radius: 5px;
     border-color: rgba(0, 255, 255, 0.288);
     background-color: rgba(0, 255, 255, 0.452);
-    padding:10%;
+    justify-content: space-between;
+    gap:10em;
+    padding: 10%;
+    
 
 }
 
@@ -43,4 +48,26 @@
 body{
     background-size:cover;
     background-repeat: no-repeat;
+}
+
+#currentIcon{
+    width:82px;
+}
+
+#currentTemp, #location{
+    font-size:xx-large;
+    font-weight: bolder;
+}
+
+.column{
+    display:flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+#locationChange{
+    display: flex;
+    justify-content: center;
+    margin-top: 2em;
+    margin-bottom: 0;
 }

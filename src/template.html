@@ -6,18 +6,34 @@
     <title>Weather</title>
 </head>
 <body>
+    <form action="" id="locationChange">
+        <div class="formGroup">
+            <input type="text" name="cityName" id="cityName" maxlength="50" placeholder="Tokyo/New York/Berlin" >
+            <button id="lookupWeatherButton">Show Weather</button>
+        </div>
+    </form>
     <div class="appContainer">
         <div class="todayWeather">
-            <div id="location"></div>
-            <img src="//:0" id="currentIcon" alt="">
-            <div id="currentTemp"></div>
-            <div id="currentCondition"></div>
-            <div class="pairing">
-                <div>Feels Like:</div>
-                <div id="feelsLike"></div>
-            </div>   
-            <div id="todayRange"></div>
-            <div id="todayHumidity"></div>
+            <div class="column">
+                <div class="columnPair">
+                    <div id="location"></div>
+                    <div id="currentCondition"></div>
+                </div>
+                <div class="pairing">
+                    <div>Feels Like:</div>
+                    <div id="feelsLike"></div>
+                </div>   
+                <div id="todayRange"></div>
+                <div id="todayHumidity"></div>
+            </div>
+            <div class="cloumn">
+                <div>
+                    <div id="currentTemp"></div>
+                    <img src="//:0" id="currentIcon" alt="">
+                </div> 
+
+
+            </div>
         </div>
         <div class="weekCards">
             <div class="dayCard" id="dayOne">
