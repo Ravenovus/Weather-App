@@ -7,7 +7,7 @@ async function defaultInit(){
 }
 
 async function getWeatherData(){
-        let data = await getWeatherInfo("tokyo","celsius");
+        let data = await getWeatherInfo("New-York","celsius");
         let processedData = handleWeatherInfo(data, "celsius");
         updateUI(processedData);
 }
