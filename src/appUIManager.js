@@ -8,7 +8,7 @@ export const userInterface = {
 
 
     updateOnScreenData(weather){
-        const unit = (weather.today.unit == "celsius")? "c" : "f";
+        const unit = (weather.today.unit == "Celsius")? "c" : "f";
         this.updateTodayInformation(weather.today, unit);
         this.updateWeeklyInformation(weather.week, unit);
     },

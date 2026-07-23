@@ -42,7 +42,8 @@
 }
 
 .weatherIcon{
-    width:64px;
+    height: 40px;
+    width: 50px;
 }
 
 body{
@@ -65,9 +66,9 @@ body{
     gap: 12px;
 }
 
-#locationChange{
+.formGroup{
     display: flex;
     justify-content: center;
     margin-top: 2em;
-    margin-bottom: 0;
+    margin-bottom: 1em;
 }
