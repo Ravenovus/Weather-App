@@ -19,16 +19,12 @@ async function getWeatherInfo(location, unitType) {
 }
 
 function handleWeatherInfo(data, unitType){
-    //null check will happen in controller
+
     const today = data.currentConditions;
-
     const week = data.days;
-
     const location = data.resolvedAddress;
 
-
     const weatherData ={
-        //today data - expansive
         today : {
             unit : unitType,
             location: location,
@@ -42,8 +38,6 @@ function handleWeatherInfo(data, unitType){
             icon : today.icon
         },
         week : week.slice(1,7)
-
-        //rest of the week data - limited temp minmax and icon
     }
 
     return weatherData;

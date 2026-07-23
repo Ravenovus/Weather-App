@@ -5,6 +5,7 @@ import { weatherStaticIcons } from "./imageImporter.js";
 export const userInterface = {
     todayCard : document.querySelector(".todayWeather"),
     weekCards : document.getElementsByClassName("dayCard"),
+    errorWindow : document.querySelector("#inputError"),
 
 
     updateOnScreenData(weather){
@@ -17,11 +18,12 @@ export const userInterface = {
         let backgroundImage = weatherStaticImages[today.condition.split(",")[0]];
         let todayIcon = weatherStaticIcons[today.icon]
         document.querySelector("#location").textContent = today.location;
-        document.querySelector("#currentTemp").textContent = today.currentTemp + unit;
+        document.querySelector("#currentTemp").textContent = today.currentTemp +"°"+unit;
         document.querySelector("#currentIcon").src = `${todayIcon}`;
         document.querySelector("#currentCondition").textContent = today.condition;
-        document.querySelector("#feelsLike").textContent = today.feelsLike + unit;
-        document.querySelector("#todayRange").textContent = today.minTemp +unit+ " - " +today.maxTemp+unit;
+        document.querySelector("#feelsLike").textContent = today.feelsLike +"°"+unit;
+        document.querySelector("#todayRange").textContent = today.minTemp+"°"+unit+ " - " +today.maxTemp+"°"+unit;
+        document.querySelector("#todayHumidity").textContent = today.humidity + "%";
         document.body.style.backgroundImage = `url(${backgroundImage}`;
     },
 
@@ -38,7 +40,7 @@ export const userInterface = {
         day.querySelector(".weatherDescription").textContent = data.conditions;
         day.querySelector(".weatherIcon").src = `${icon}`
         day.querySelector(".dayName").textContent = this.setDayName(date.getDay());
-        day.querySelector(".dayTemperatures").textContent = data.tempmin + unit + " - "+data.tempmax+unit;
+        day.querySelector(".dayTemperatures").textContent = data.tempmin +"°"+unit+" - "+data.tempmax+"°"+unit;
     },
 
     setDayName(dayCode){
@@ -59,5 +61,13 @@ export const userInterface = {
 
             default : return "error";
         }
+    },
+
+    openErrorWindow(){
+        this.errorWindow.showModal();
+    },
+
+    closeErrorWindow(){
+        this.errorWindow.close();
     }
 }   

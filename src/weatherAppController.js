@@ -11,7 +11,10 @@ async function defaultInit(){
 
 async function getWeatherData(location, unit){
     let data = await getWeatherInfo(location,unit);
-    //add nullcheck for data here and reset, also do modal to notify user that "oi, dimwit, actual place please"
+    if(data == null){
+        userInterface.openErrorWindow();
+        return;
+    }
     let processedData = handleWeatherInfo(data, unit);
     updateUI(processedData);
 }
@@ -21,7 +24,6 @@ function updateUI(data){
 }
 
 function switchUnit(unit){
-    //use button ID to save instead of class member 
     if(unit == "Celsius"){
         return "Fahrenheit";
     }
@@ -34,7 +36,7 @@ function addListeners(){
     document.querySelector(".unitSwap").addEventListener(
         "click", function(e) {
             e.target.id = switchUnit(e.target.id);
-            e.target.textContent = e.target.id;
+            e.target.textContent = e.target.id[0];
             getWeatherData(document.querySelector("#location").textContent, e.target.id); 
         }
     )
@@ -42,9 +44,15 @@ function addListeners(){
     document.querySelector("#lookupWeatherButton").addEventListener(
         "click", function(){
             let city = document.querySelector("#cityName").value;
-            let unit  = document.querySelector(".unitSwap").textContent;
+            let unit  = document.querySelector(".unitSwap").id;
             getWeatherData(city,unit);
             document.querySelector("#cityName").value = "";
+        }
+    )
+
+    document.querySelector("#errorAccept").addEventListener(
+        "click", function(){
+            userInterface.closeErrorWindow();
         }
     )
 }

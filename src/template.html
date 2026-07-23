@@ -6,9 +6,8 @@
     <title>Weather</title>
 </head>
 <body>
-    
     <div class="formGroup">
-        <button class="unitSwap" id="Celsius">Celsius</button>
+        <button class="unitSwap" id="Celsius">C</button>
         <input type="text" name="cityName" id="cityName" maxlength="50" placeholder="Tokyo/New York/Berlin" >
         <button id="lookupWeatherButton">Show Weather</button>
     </div>
@@ -24,15 +23,17 @@
                     <div id="feelsLike"></div>
                 </div>   
                 <div id="todayRange"></div>
-                <div id="todayHumidity"></div>
+                <div class="pairing">
+                    <div>Humidity:</div>
+                    <div id="todayHumidity"></div>
+                </div>  
+
             </div>
             <div class="cloumn">
                 <div>
                     <div id="currentTemp"></div>
                     <img src="//:0" id="currentIcon" alt="">
                 </div> 
-
-
             </div>
         </div>
         <div class="weekCards">
@@ -99,5 +100,10 @@
 
         </div>
     </div>
+    <dialog id="inputError">
+        <h1>Input Error!</h1>
+        <p class="error">We couldnt find the city you inserted</p>
+        <button id="errorAccept">Ok</button>
+    </dialog>
 </body>
 </html>
